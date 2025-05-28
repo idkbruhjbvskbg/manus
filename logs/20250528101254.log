@@ -1,0 +1,132 @@
+2025-05-28 10:13:23.212 | WARNING  | __main__:main:16 - Processing your request...
+2025-05-28 10:13:23.213 | INFO     | app.agent.base:run:140 - Executing step 1/20
+2025-05-28 10:13:25.794 | INFO     | app.llm:update_token_count:243 - Token usage: Input=1607, Completion=60, Cumulative Input=1607, Cumulative Completion=60, Total=1667, Cumulative Total=1667
+2025-05-28 10:13:25.795 | INFO     | app.agent.toolcall:think:81 - ✨ Manus's thoughts: Okay, I can help you plan a 9-day trip to Geneva. I'll start by searching the web for popular attractions and activities to create a possible itinerary.
+2025-05-28 10:13:25.800 | INFO     | app.agent.toolcall:think:82 - 🛠️ Manus selected 1 tools to use
+2025-05-28 10:13:25.801 | INFO     | app.agent.toolcall:think:86 - 🧰 Tools being prepared: ['browser_use']
+2025-05-28 10:13:25.802 | INFO     | app.agent.toolcall:think:89 - 🔧 Tool arguments: {"action":"web_search","query":"9 day itinerary Geneva"}
+2025-05-28 10:13:25.803 | INFO     | app.agent.toolcall:execute_tool:180 - 🔧 Activating tool: 'browser_use'...
+2025-05-28 10:13:34.988 | INFO     | app.agent.toolcall:act:150 - 🎯 Tool 'browser_use' completed its mission! Result: Observed output of cmd `browser_use` executed:
+Error: Browser action 'web_search' failed: BrowserType.launch: Executable doesn't exist at C:\Users\brviv_lvv2mhm\AppData\Local\ms-playwright\chromium-1148\chrome-win\chrome.exe
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝
+2025-05-28 10:13:34.991 | INFO     | app.agent.base:run:140 - Executing step 2/20
+2025-05-28 10:13:37.048 | DEBUG    | app.agent.browser:get_browser_state:31 - Browser state error: Failed to get browser state: BrowserType.launch: Executable doesn't exist at C:\Users\brviv_lvv2mhm\AppData\Local\ms-playwright\chromium-1148\chrome-win\chrome.exe
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     playwright install                                     ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝
+2025-05-28 10:13:38.713 | INFO     | app.llm:update_token_count:243 - Token usage: Input=2075, Completion=114, Cumulative Input=3682, Cumulative Completion=174, Total=2189, Cumulative Total=3856
+2025-05-28 10:13:38.714 | INFO     | app.agent.toolcall:think:81 - ✨ Manus's thoughts: It seems the browser tool encountered an issue because the necessary browser components are not installed. The error message suggests running `playwright install` to fix this.
+
+Could you please run `playwright install` in your environment and let me know once it's done? After that, I can try searching for Geneva itineraries again.
+2025-05-28 10:13:38.717 | INFO     | app.agent.toolcall:think:82 - 🛠️ Manus selected 1 tools to use
+2025-05-28 10:13:38.718 | INFO     | app.agent.toolcall:think:86 - 🧰 Tools being prepared: ['ask_human']
+2025-05-28 10:13:38.719 | INFO     | app.agent.toolcall:think:89 - 🔧 Tool arguments: {"inquire":"Could you please run `playwright install` in your environment and let me know once it's done? After that, I can try searching for Geneva itineraries again."}
+2025-05-28 10:13:38.721 | INFO     | app.agent.toolcall:execute_tool:180 - 🔧 Activating tool: 'ask_human'...
+2025-05-28 10:13:58.993 | ERROR    | app.agent.toolcall:execute_tool:207 - ⚠️ Tool 'ask_human' encountered a problem: 
+Traceback (most recent call last):
+
+  File "C:\Users\brviv_lvv2mhm\OneDrive\Desktop\code\openmanus\OpenManus\main.py", line 27, in <module>
+    asyncio.run(main())
+    │       │   └ <function main at 0x000001B4CB3EA2A0>
+    │       └ <function run at 0x000001B4CD381A80>
+    └ <module 'asyncio' from 'C:\\Users\\brviv_lvv2mhm\\anaconda3\\envs\\open_manus\\Lib\\asyncio\\__init__.py'>
+
+  File "C:\Users\brviv_lvv2mhm\anaconda3\envs\open_manus\Lib\asyncio\runners.py", line 195, in run
+    return runner.run(main)
+           │      │   └ <coroutine object main at 0x000001B4D2CE5FC0>
+           │      └ <function Runner.run at 0x000001B4CD3EAF20>
+           └ <asyncio.runners.Runner object at 0x000001B4CD385910>
+  File "C:\Users\brviv_lvv2mhm\anaconda3\envs\open_manus\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           │    │     │                  └ <Task cancelling name='Task-1' coro=<main() running at C:\Users\brviv_lvv2mhm\OneDrive\Desktop\code\openmanus\OpenManus\main....
+           │    │     └ <function BaseEventLoop.run_until_complete at 0x000001B4CD3E8B80>
+           │    └ <ProactorEventLoop running=True closed=False debug=False>
+           └ <asyncio.runners.Runner object at 0x000001B4CD385910>
+  File "C:\Users\brviv_lvv2mhm\anaconda3\envs\open_manus\Lib\asyncio\base_events.py", line 678, in run_until_complete
+    self.run_forever()
+    │    └ <function ProactorEventLoop.run_forever at 0x000001B4CD4A04A0>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+  File "C:\Users\brviv_lvv2mhm\anaconda3\envs\open_manus\Lib\asyncio\windows_events.py", line 322, in run_forever
+    super().run_forever()
+  File "C:\Users\brviv_lvv2mhm\anaconda3\envs\open_manus\Lib\asyncio\base_events.py", line 645, in run_forever
+    self._run_once()
+    │    └ <function BaseEventLoop._run_once at 0x000001B4CD3EA8E0>
+    └ <ProactorEventLoop running=True closed=False debug=False>
+  File "C:\Users\brviv_lvv2mhm\anaconda3\envs\open_manus\Lib\asyncio\base_events.py", line 1999, in _run_once
+    handle._run()
+    │      └ <function Handle._run at 0x000001B4CD328D60>
+    └ <Handle <_asyncio.TaskStepMethWrapper object at 0x000001B4D3177E80>()>
+  File "C:\Users\brviv_lvv2mhm\anaconda3\envs\open_manus\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+    │    │            │    │           │    └ <member '_args' of 'Handle' objects>
+    │    │            │    │           └ <Handle <_asyncio.TaskStepMethWrapper object at 0x000001B4D3177E80>()>
+    │    │            │    └ <member '_callback' of 'Handle' objects>
+    │    │            └ <Handle <_asyncio.TaskStepMethWrapper object at 0x000001B4D3177E80>()>
+    │    └ <member '_context' of 'Handle' objects>
+    └ <Handle <_asyncio.TaskStepMethWrapper object at 0x000001B4D3177E80>()>
+
+  File "C:\Users\brviv_lvv2mhm\OneDrive\Desktop\code\openmanus\OpenManus\main.py", line 17, in main
+    await agent.run(prompt)
+          │     │   └ 'plan a 9 day trip to geneva'
+          │     └ <function ToolCallAgent.run at 0x000001B4D16085E0>
+          └ Manus(name='Manus', description='A versatile agent that can solve various tasks using multiple tools including MCP-based tool...
+
+  File "C:\Users\brviv_lvv2mhm\OneDrive\Desktop\code\openmanus\OpenManus\app\agent\toolcall.py", line 248, in run
+    return await super().run(request)
+                             └ 'plan a 9 day trip to geneva'
+
+  File "C:\Users\brviv_lvv2mhm\OneDrive\Desktop\code\openmanus\OpenManus\app\agent\base.py", line 141, in run
+    step_result = await self.step()
+                        │    └ <function ReActAgent.step at 0x000001B4D0955DA0>
+                        └ Manus(name='Manus', description='A versatile agent that can solve various tasks using multiple tools including MCP-based tool...
+
+  File "C:\Users\brviv_lvv2mhm\OneDrive\Desktop\code\openmanus\OpenManus\app\agent\react.py", line 38, in step
+    return await self.act()
+                 │    └ <function ToolCallAgent.act at 0x000001B4D0D8DBC0>
+                 └ Manus(name='Manus', description='A versatile agent that can solve various tasks using multiple tools including MCP-based tool...
+
+  File "C:\Users\brviv_lvv2mhm\OneDrive\Desktop\code\openmanus\OpenManus\app\agent\toolcall.py", line 145, in act
+    result = await self.execute_tool(command)
+                   │    │            └ ChatCompletionMessageToolCall(id='', function=Function(arguments='{"inquire":"Could you please run `playwright install` in yo...
+                   │    └ <function ToolCallAgent.execute_tool at 0x000001B4D0D8DB20>
+                   └ Manus(name='Manus', description='A versatile agent that can solve various tasks using multiple tools including MCP-based tool...
+
+> File "C:\Users\brviv_lvv2mhm\OneDrive\Desktop\code\openmanus\OpenManus\app\agent\toolcall.py", line 181, in execute_tool
+    result = await self.available_tools.execute(name=name, tool_input=args)
+                   │    │               │            │                └ {'inquire': "Could you please run `playwright install` in your environment and let me know once it's done? After that, I can ...
+                   │    │               │            └ 'ask_human'
+                   │    │               └ <function ToolCollection.execute at 0x000001B4D15D6840>
+                   │    └ <app.tool.tool_collection.ToolCollection object at 0x000001B4D3A7AEA0>
+                   └ Manus(name='Manus', description='A versatile agent that can solve various tasks using multiple tools including MCP-based tool...
+
+  File "C:\Users\brviv_lvv2mhm\OneDrive\Desktop\code\openmanus\OpenManus\app\tool\tool_collection.py", line 32, in execute
+    result = await tool(**tool_input)
+                   │      └ {'inquire': "Could you please run `playwright install` in your environment and let me know once it's done? After that, I can ...
+                   └ AskHuman(name='ask_human', description='Use this tool to ask human for help.', parameters={'type': 'object', 'properties': {'...
+
+  File "C:\Users\brviv_lvv2mhm\OneDrive\Desktop\code\openmanus\OpenManus\app\tool\base.py", line 17, in __call__
+    return await self.execute(**kwargs)
+                 │    │         └ {'inquire': "Could you please run `playwright install` in your environment and let me know once it's done? After that, I can ...
+                 │    └ <function AskHuman.execute at 0x000001B4D2CE9E40>
+                 └ AskHuman(name='ask_human', description='Use this tool to ask human for help.', parameters={'type': 'object', 'properties': {'...
+
+  File "C:\Users\brviv_lvv2mhm\OneDrive\Desktop\code\openmanus\OpenManus\app\tool\ask_human.py", line 21, in execute
+    return input(f"""Bot: {inquire}\n\nYou: """).strip()
+                           └ "Could you please run `playwright install` in your environment and let me know once it's done? After that, I can try searchin...
+
+EOFError
+2025-05-28 10:13:59.029 | INFO     | app.agent.toolcall:act:150 - 🎯 Tool 'ask_human' completed its mission! Result: Error: ⚠️ Tool 'ask_human' encountered a problem: 
+2025-05-28 10:13:59.030 | INFO     | app.agent.base:run:140 - Executing step 3/20
+2025-05-28 10:13:59.123 | INFO     | app.tool.mcp:disconnect:175 - Disconnected from all MCP servers
